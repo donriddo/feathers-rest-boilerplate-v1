@@ -8,6 +8,10 @@
       "secret": "Np4YpQM/BgtInATkww2Gc0FoVNdhZUGzKw0mrmxZfxAxo3hStzgLN2P04hBg80J3G0Bbzirfh6XP9eHoaJlliA=="
     },
     "local": {},
+    "successRedirect": false,
+    "failureRedirect": false,
+    "localEndpoint": "/login",
+    "userEndpoint": "/user",
     "facebook": {
       "clientID": "your facebook client id",
       "clientSecret": "your facebook client secret",
