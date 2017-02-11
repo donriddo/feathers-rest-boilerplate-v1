@@ -13,6 +13,7 @@ const bodyParser = require('body-parser');
 const socketio = require('feathers-socketio');const primus = require('feathers-primus');
 const middleware = require('./middleware');
 const services = require('./services');
+const bootstrap = require('./bootstrap');
 
 const app = feathers();
 
@@ -29,7 +30,8 @@ app.use(compress())
   .configure(rest())
   .configure(socketio())
   .configure(primus({ transformer: 'websockets' }))
+  .configure(middleware)
   .configure(services)
-  .configure(middleware);
+  .configure(bootstrap);
 
 module.exports = app;
