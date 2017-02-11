@@ -1,8 +1,13 @@
 'use strict';
 
-const assert = require('assert');
-const request = require('request');
-const app = require('../src/app');
+const chai = require('chai');
+const chaiHTTP = require('chai-http');
+const should = chai.should(),
+      expect = chai.expect,
+      assert = chai.assert;
+const app = require('../src/app.test');
+chai.use(chaiHTTP);
+
 
 describe('Feathers application tests', function() {
   before(function(done) {
@@ -14,38 +19,26 @@ describe('Feathers application tests', function() {
     this.server.close(done);
   });
 
-  it('starts and shows the index page', function(done) {
-    request('http://localhost:3030', function(err, res, body) {
-      assert.ok(body.indexOf('<html>') !== -1);
-      done(err);
-    });
+  it('should return 200: App loaded successfully', function(done) {
+      chai.request(app)
+      .get('/')
+      .end((err, res) => {
+          expect(res).to.have.status(200);
+          done();
+      });
   });
 
   describe('404', function() {
-    it('shows a 404 HTML page', function(done) {
-      request({
-        url: 'http://localhost:3030/path/to/nowhere',
-        headers: {
-          'Accept': 'text/html'
-        }
-      }, function(err, res, body) {
-        assert.equal(res.statusCode, 404);
-        assert.ok(body.indexOf('<html>') !== -1);
-        done(err);
-      });
+    it('should return 404: Page not found', function(done) {
+        chai.request(app)
+        .get('/path/to/nowhere')
+        .end((err, res) => {
+            expect(res).to.have.status(404);
+            expect(res.body).to.have.property('name');
+            expect(res.body.name).to.equal('NotFound');
+            done();
+        });
     });
 
-    it('shows a 404 JSON error without stack trace', function(done) {
-      request({
-        url: 'http://localhost:3030/path/to/nowhere',
-        json: true
-      }, function(err, res, body) {
-        assert.equal(res.statusCode, 404);
-        assert.equal(body.code, 404);
-        assert.equal(body.message, 'Page not found');
-        assert.equal(body.name, 'NotFound');
-        done(err);
-      });
-    });
   });
 });

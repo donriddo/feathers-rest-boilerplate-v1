@@ -15,7 +15,7 @@ const userSchema = new Schema({
   google: { type: Schema.Types.Mixed },
   email: {type: String, required: true, unique: true},
   password: { type: String, required: true },
-  role: {type: String, required: true, enum: ["saas", "admin", "customer"], 'default': "customer"},
+  role: {type: String, enum: ["saas", "admin", "customer"], 'default': "customer"},
   createdAt: { type: Date, 'default': Date.now },
   updatedAt: { type: Date, 'default': Date.now }
 });
