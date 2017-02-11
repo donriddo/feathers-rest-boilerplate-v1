@@ -1,6 +1,6 @@
 # feathers-api-boilerplate
 
-> Boilerplate for Fishioscoper's Feathers Projects
+> Boilerplate for Fishioscopers Feathers Projects
 
 ## About
 

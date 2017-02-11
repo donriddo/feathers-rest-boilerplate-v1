@@ -30,8 +30,8 @@ app.use(compress())
   .configure(rest())
   .configure(socketio())
   .configure(primus({ transformer: 'websockets' }))
-  .configure(middleware)
   .configure(services)
+  .configure(middleware)
   .configure(bootstrap);
 
 module.exports = app;
