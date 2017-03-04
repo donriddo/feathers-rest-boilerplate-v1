@@ -3,16 +3,18 @@
 const service = require('feathers-mongoose');
 const user = require('./user-model');
 const hooks = require('./hooks');
+const globalHooks = require('../../hooks')
 
 module.exports = function() {
   const app = this;
 
   const options = {
-    Model: user,
-    paginate: {
-      default: 5,
-      max: 25
-    }
+      Model: user,
+      paginate: {
+          default: 5,
+          max: 25
+      },
+      lean: true
   };
 
   // Initialize our service with any options it requires
@@ -25,6 +27,12 @@ module.exports = function() {
 
   // Set up our before hooks
   userService.before(hooks.before);
+
+  // userService.before({
+  //     remove(hook) {
+  //         globalHooks.isDeleted(hook);
+  //     }
+  // });
 
   // Set up our after hooks
   userService.after(hooks.after);

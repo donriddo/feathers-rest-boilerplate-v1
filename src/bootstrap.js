@@ -11,6 +11,7 @@ module.exports = function() {
       role: "saas"
   };
   global.User = app.service('user');
+  global._ = require('lodash');
 
   function initializeSetup() {
       User.create(SAAS).then(saas => {
