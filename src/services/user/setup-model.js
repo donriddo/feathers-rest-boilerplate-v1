@@ -7,12 +7,13 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const plugin = require('../plugin');
 
 const setupSchema = new Schema({
-  initialized: { type: Boolean, 'default': false },
-  createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now }
+  initialized: { type: Boolean, 'default': false }
 });
+
+setupSchema.plugin(plugin);
 
 const setupModel = mongoose.model('setup', setupSchema);
 

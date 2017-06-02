@@ -7,6 +7,7 @@
 
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const plugin = require('../plugin');
 
 const userSchema = new Schema({
   facebookId: { type: String },
@@ -15,11 +16,10 @@ const userSchema = new Schema({
   google: { type: Schema.Types.Mixed },
   email: {type: String, required: true, unique: true},
   password: { type: String, required: true },
-  role: {type: String, enum: ["saas", "admin", "customer"], 'default': "customer"},
-  isDeleted: { type: Boolean, 'default': false },
-  createdAt: { type: Date, 'default': Date.now },
-  updatedAt: { type: Date, 'default': Date.now }
+  role: {type: String, enum: ["saas", "admin", "customer"], 'default': "customer"}
 });
+
+userSchema.plugin(plugin);
 
 const userModel = mongoose.model('user', userSchema);
 
