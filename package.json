@@ -1,7 +1,8 @@
 {
-  "name": "feathers-api-boilerplate",
-  "description": "Boilerplate for Fishioscopers Feathers Projects",
-  "version": "0.0.1",
+
+  "name": "feathers-rest-boilerplate-v1",
+  "description": "Boilerplate for my Feathers Projects(unfinished => check feathers-rest-boilerplate-v2)",
+  "version": "0.1.0",
   "homepage": "",
   "main": "src/",
   "keywords": [
