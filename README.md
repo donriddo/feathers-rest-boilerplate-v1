@@ -1,6 +1,6 @@
-# feathers-api-boilerplate
+# feathers-rest-boilerplate-v1
 
-> Boilerplate for Fishioscoper&#39;s Feathers Projects
+> Boilerplate for my Feathers Projects (unfinished => check feathers-rest-boilerplate-v2)
 
 ## About
 
@@ -25,7 +25,7 @@ Getting up and running is as easy as 1, 2, 3.
 
 ## Testing
 
-Simply run `npm test` and all your tests in the `test/` directory will be run.
+Simply run `npm run mocha` and all the tests in the `test/` directory will be run.
 
 ## Scaffolding
 
