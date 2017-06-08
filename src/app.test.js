@@ -29,7 +29,8 @@ app.use(compress())
   .configure(hooks())
   .configure(rest())
   .configure(socketio())
-  .configure(primus({ transformer: 'websockets' }))
+  .configure(primus({ transformer: 'websockets' }));
+  app.set('environ', 'test')
   .configure(services)
   .configure(middleware)
   .configure(bootstrap);

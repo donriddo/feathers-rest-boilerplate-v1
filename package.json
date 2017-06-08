@@ -1,4 +1,5 @@
 {
+
   "name": "feathers-rest-boilerplate-v1",
   "description": "Boilerplate for my Feathers Projects(unfinished => check feathers-rest-boilerplate-v2)",
   "version": "0.1.0",
@@ -22,7 +23,10 @@
     "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
+    "barrels": "^1.6.4",
     "body-parser": "^1.16.0",
+    "chai": "^3.5.0",
+    "chai-http": "^3.0.0",
     "compression": "^1.6.2",
     "cors": "^2.8.1",
     "feathers": "^2.0.3",

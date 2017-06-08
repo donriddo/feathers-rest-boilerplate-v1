@@ -2,12 +2,17 @@
   "host": "localhost",
   "port": 3030,
   "mongodb": "mongodb://localhost:27017/feathersApiBoilerplate",
+  "testDB": "mongodb://localhost:27017/feathersApiTest",
   "public": "../public/",
   "auth": {
     "token": {
       "secret": "Np4YpQM/BgtInATkww2Gc0FoVNdhZUGzKw0mrmxZfxAxo3hStzgLN2P04hBg80J3G0Bbzirfh6XP9eHoaJlliA=="
     },
     "local": {},
+    "successRedirect": false,
+    "failureRedirect": false,
+    "localEndpoint": "/login",
+    "userEndpoint": "/user",
     "facebook": {
       "clientID": "your facebook client id",
       "clientSecret": "your facebook client secret",
